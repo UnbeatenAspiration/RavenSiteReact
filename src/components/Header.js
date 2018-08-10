@@ -1,12 +1,12 @@
 import React from 'react'
-import logo from '../raven-logo.png';
-import Raven from '../raven.png';
-import Word from '../name.png';
+import logo from '../images/raven-logo.png';
+import Raven from '../images/raven.png';
+import Word from '../images/name.png';
 
 function Header(){
     return(
         <header className="App-header">
-            <div>
+            <div >
                 <img src={logo} className="App-logo" />
                 <span className="easy-pulse" />
                 <img src={Raven} className="Raven" />
