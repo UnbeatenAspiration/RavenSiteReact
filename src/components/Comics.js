@@ -4,17 +4,16 @@ import React,{PureComponent} from 'react'
 */}
 export default class Comics extends PureComponent{
     state = {
-
     }
     render(){
-        const {comics} = this.props
+        const {isOpen,comics} = this.props
         const desc = comics.description
-        const image = comics.images
+        const image = comics.images.length ? <img src={`${comics.images[0].path}.${comics.images[0].extension}`} /> :null
+        const divName = `ComicsBlock card ${!this.props.isOpen ? 'tower' : '' }`
         return (
-            <div className="ComicsBlock card">
-                <div className="Comics-img">
-                </div>
+            <div className={divName}>
                 <h3 className="display-3"> {comics.title} </h3>
+                {isOpen && image}
                 <div className="desc card-body"> {desc} </div>
             </div>
         )

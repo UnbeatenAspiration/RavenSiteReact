@@ -48,10 +48,10 @@ export default class ComicsList extends Component{
                 <div className="ComicsList container">
                     <ul>
                         {console.log(comics)}
-                        {comics.map(item =>{
+                        {comics.map((item,index) =>{
                             return (
-                                <li>
-                                    <Comics key={item.id} comics={item} />
+                                <li key={item.id}>
+                                    <Comics key={item.id} comics={item} isOpen = {index === 0 } />
                                 </li>
                             )})}
 

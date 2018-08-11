@@ -1,0 +1,24 @@
+@font-face{
+  font-family:'Adventure';
+  src:url(../fonts/adventure/Adventure.otf);
+  font-weight:normal;
+  font-style:normal
+}
+@font-face{
+  font-family:'Adventure Hollow';
+  src:url(../fonts/adventure/Adventure Hollow.otf);
+  font-weight:normal;
+  font-style:normal
+}
+@font-face{
+  font-family:'Acmesa';
+  src:url(../fonts/acme/acmesa.TTF);
+  font-weight:normal;
+  font-style:normal
+}
+@font-face{
+  font-family:'Adventure Hollow';
+  src:url(../fonts/acme/acmesa.TTF);
+  font-weight:normal;
+  font-style:normal
+}
