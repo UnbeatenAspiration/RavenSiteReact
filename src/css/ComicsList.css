@@ -5,11 +5,11 @@
     margin-bottom: 40px;
     min-height: 350px;
     padding: 20px 40px  150px 40px;
+    transition: all 0.2s ease-in-out;
 }
 .tower{
     background: url(../images/back-card.png) center 60%;
 }
-.
 .desc{
     text-shadow: #fff 1px 1px 0,#fff -1px -1px 0,#fff -1px 1px 0,#fff 1px -1px 0;
     color: #50078f;

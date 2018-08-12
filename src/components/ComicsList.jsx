@@ -7,7 +7,8 @@ export default class ComicsList extends Component{
         this.state = {
           error: null,
           isLoaded: false,
-          items: []
+          items: [],
+          openComics : null,
         };
     }
     componentDidMount() {
@@ -51,7 +52,7 @@ export default class ComicsList extends Component{
                         {comics.map((item,index) =>{
                             return (
                                 <li key={item.id}>
-                                    <Comics key={item.id} comics={item} isOpen = {index === 0 } />
+                                    <Comics key={item.id} comics={item} isOpen = {this.state.openComics === item.id } openIt = { this.openIt.bind(this,item.id)} />
                                 </li>
                             )})}
 
@@ -59,4 +60,5 @@ export default class ComicsList extends Component{
                 </div>
             )
     }
+    openIt = openComics => this.setState({ openComics });
 }
