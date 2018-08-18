@@ -1,6 +1,7 @@
 import React,{PureComponent} from 'react'
-import { get } from 'lodash'
+// import { get } from 'lodash'
 import Key from '../apikey.jsx'
+import '../css/comics.css'
 
 export default class Characters extends PureComponent{
     state = {
@@ -8,7 +9,6 @@ export default class Characters extends PureComponent{
       isLoaded: false,
       items: [],
     };
-
     componentWillReceiveProps( nextProps ){
         if( !this.state.isLoaded && nextProps.open ){
             Promise.all( nextProps.item.map( ( characterName ) => {
@@ -54,11 +54,12 @@ export default class Characters extends PureComponent{
                 <div>
                     {this.state.items.map( character =>{
                         const {results} = character.data;
+                        const image = `${results[0].thumbnail.path}.${results[0].thumbnail.extension}`
                         return (
-                            <React.Fragment key ={results[0].id}>
-                                <img className="character_image" src={`${results[0].thumbnail.path}.${results[0].thumbnail.extension}`} alt="thums" />
-                                <div className="hero-title">{results[0].name}</div>
-                            </React.Fragment>
+                            <div key ={results[0].id} className="character-div">
+                                <div className="character-image" style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} ></div>
+                                <div className="character-title">{results[0].name}</div>
+                            </div>
                         )
                     }
                 )}
