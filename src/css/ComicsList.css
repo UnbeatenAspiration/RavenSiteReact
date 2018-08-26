@@ -7,13 +7,21 @@
     padding: 20px 40px  150px 40px;
     transition: all 0.2s ease-in-out;
 }
+.ComicsBlock>h3{
+    margin-left: 70px;
+}
 .ComicsBlock.hard{
     transform: skewX(-2deg);
 }
 .tower{
     background: url(../images/back-card.png) center 60%;
 }
-.
+.open{
+    background: url(../images/avengers.png) top left,url(../images/c.png) bottom right;
+    background-repeat: no-repeat;
+    background-size: 100px, 100%;
+    background-color: #f5edd7 !important;
+}
 .desc{
     text-shadow: #fff 1px 1px 0,#fff -1px -1px 0,#fff -1px 1px 0,#fff 1px -1px 0;
     color: #50078f;

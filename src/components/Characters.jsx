@@ -1,6 +1,8 @@
 import React,{PureComponent} from 'react'
 // import { get } from 'lodash'
 import Key from '../apikey.jsx'
+import Hero from './Hero'
+import Errors from './utils/ErrorCatching'
 import '../css/comics.css'
 
 export default class Characters extends PureComponent{
@@ -36,7 +38,8 @@ export default class Characters extends PureComponent{
                     return (
                         <div>
                             {this.setState({
-                                items : bands
+                                items : bands,
+                                isLoaded : true
                             })}
                         </div>
                     )
@@ -50,23 +53,39 @@ export default class Characters extends PureComponent{
     }
     render(){
         if ( this.props.open ){
-            return (
-                <div>
-                    {this.state.items.map( character =>{
-                        const {results} = character.data;
-                        const image = `${results[0].thumbnail.path}.${results[0].thumbnail.extension}`
-                        return (
-                            <div key ={results[0].id} className="character-div">
-                                <div className="character-image" style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} ></div>
-                                <div className="character-title">{results[0].name}</div>
-                            </div>
-                        )
-                    }
-                )}
-                </div>
-            )
+            if(!this.state.isLoaded){
+                return(
+                    <div className="cssload-container">
+                        <div className="cssload-shaft1"></div>
+                        <div className="cssload-shaft2"></div>
+                        <div className="cssload-shaft3"></div>
+                        <div className="cssload-shaft4"></div>
+                        <div className="cssload-shaft5"></div>
+                        <div className="cssload-shaft6"></div>
+                        <div className="cssload-shaft7"></div>
+                        <div className="cssload-shaft8"></div>
+                        <div className="cssload-shaft9"></div>
+                        <div className="cssload-shaft10"></div>
+                    </div>
+                )
+            }
+            else{
+                return (
+                    <div>
+                        {this.state.items.map( (character,index) =>{
+                            const {results} = character.data;
+                            return (
+                                <Errors key={index}>
+                                    <Hero  results = {results}/>
+                                </Errors>
+                            )
+                        }
+                    )}
+                    </div>
+                )
         }
+    }
     else
         return null
-    }
+}
 }

@@ -8,10 +8,18 @@
     background-size: cover;
     width: 150px;
     transform: skewX(-2deg);
+    transition: .9s all
+}
+.character-image:hover{
+    width: 350px;
+}
+.character-image:hover + div{
+    transform: translateX(100px);
 }
 .character-title{
     width: 150px;
     font-size: 1.2em;
     text-align: center;
     margin-left: -7px;
+    transition: .9s all
 }

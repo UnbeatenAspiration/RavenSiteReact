@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import '../css/ComicsList.css'
+import Key from '../apikey'
 import Comics from './Comics'
 export default class ComicsList extends Component{
     constructor(props) {
@@ -12,7 +13,7 @@ export default class ComicsList extends Component{
         };
     }
     componentDidMount() {
-      fetch("http://gateway.marvel.com/v1/public/comics?ts=1&apikey=418a7c102bbb8140ad671461ddad0b79&hash=0971e2e26b618cb51be7bff506c4c821")
+      fetch(`http://gateway.marvel.com/v1/public/comics${Key}`)
         .then(res => res.json())
         .then(
           (result) => {
@@ -48,7 +49,6 @@ export default class ComicsList extends Component{
             return (
                 <div className="ComicsList container">
                     <ul>
-                        {console.log(comics)}
                         {comics.map((item,index) =>{
                             return (
                                 <li key={item.id}>
