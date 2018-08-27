@@ -3,7 +3,6 @@ import React,{PureComponent} from 'react'
 import Key from '../apikey.jsx'
 import Hero from './Hero'
 import Errors from './utils/ErrorCatching'
-import '../css/comics.css'
 
 export default class Characters extends PureComponent{
     state = {
@@ -71,16 +70,15 @@ export default class Characters extends PureComponent{
             }
             else{
                 return (
-                    <div>
+                    <div style={{'margin' : '0 auto'}}>
                         {this.state.items.map( (character,index) =>{
                             const {results} = character.data;
-                            return (
-                                <Errors key={index}>
-                                    <Hero  results = {results}/>
-                                </Errors>
-                            )
-                        }
-                    )}
+                                return (
+                                  <Errors key={index}>
+                                      <Hero  results = {results}/>
+                                  </Errors>
+                                )
+                    })}
                     </div>
                 )
         }

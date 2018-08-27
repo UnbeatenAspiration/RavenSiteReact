@@ -1,4 +1,6 @@
 import React,{PureComponent} from 'react'
+import {Description,CharacterDiv,CharacterImage,CharacterTitle} from './stylus/Comics'
+
 export default class Hero extends PureComponent{
     state = {
         error: null,
@@ -9,13 +11,24 @@ export default class Hero extends PureComponent{
     // description,events(hard),series(hard),stories,url(type:detail,wiki,comiclink)
     render(){
         const {results} = this.props
-        const image = `${results[0].thumbnail.path}.${results[0].thumbnail.extension}`
+        const hero = results[0]
+        const image = `${hero.thumbnail.path}.${results[0].thumbnail.extension}`
         console.log(results[0])
         return(
-            <div key ={results[0].id} className="character-div">
-                <div className="character-image" style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} onMouseLeave={()=>{this.setState({ hovered : false })}} onMouseOver={()=>{this.setState({ hovered : true })}}></div>
-                <div className="character-title">{results[0].name}</div>
-            </div>
+            <CharacterDiv key ={hero.id} {...this.state}>
+                <CharacterImage style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} onMouseLeave={()=>{this.setState({ hovered : false })}} onMouseOver={()=>{this.setState({ hovered : true })}}>
+                    <Description {...this.state}>
+                        <div>
+                              <div><span> Name : </span>{hero.name}</div>
+                              {hero.description && <div><span>Description :</span> {hero.description}</div> }
+                              <div><span>Available comics :</span> {hero.comics.available}</div>
+                              <div><span>Available events :</span> {hero.events.available}</div>
+                              <div><span>Available series :</span> {hero.series.available}</div>
+                        </div>
+                    </Description>
+                </CharacterImage>
+                <CharacterTitle {...this.state}>{hero.name}</CharacterTitle>
+            </CharacterDiv>
         )
     }
 }
