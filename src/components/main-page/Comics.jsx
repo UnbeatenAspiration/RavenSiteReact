@@ -2,7 +2,7 @@ import React,{PureComponent} from 'react'
 // import { get } from 'lodash'
 import Characters from './Characters'
 import sizeMe from 'react-sizeme'
-import Image from './utils/ImageMaker'
+import Image from '../utils/ImageMaker'
 /*
     title,creators,characters,dates,description,id,images,pageCount,prices,series,stories(items),textObjects,thumnail[extension],urls
 */

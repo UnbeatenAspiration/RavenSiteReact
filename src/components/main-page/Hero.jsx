@@ -1,5 +1,5 @@
 import React,{PureComponent} from 'react'
-import {Description,CharacterDiv,CharacterImage,CharacterTitle} from './stylus/Comics'
+import {Description,CharacterDiv,CharacterImage,CharacterTitle} from '../stylus/Comics'
 
 export default class Hero extends PureComponent{
     state = {
@@ -10,10 +10,8 @@ export default class Hero extends PureComponent{
     }
     // description,events(hard),series(hard),stories,url(type:detail,wiki,comiclink)
     render(){
-        const {results} = this.props
-        const hero = results[0]
-        const image = `${hero.thumbnail.path}.${results[0].thumbnail.extension}`
-        console.log(results[0])
+        const {hero}  = this.props
+        const image = `${hero.thumbnail.path}.${hero.thumbnail.extension}`
         return(
             <CharacterDiv key ={hero.id} {...this.state}>
                 <CharacterImage style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} onMouseLeave={()=>{this.setState({ hovered : false })}} onMouseOver={()=>{this.setState({ hovered : true })}}>

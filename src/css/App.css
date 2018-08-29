@@ -12,7 +12,7 @@ html{
 }
 main{
     background: url(../images/bg.jpg);
-    min-height: 100vh;
+    min-height: 850px;
     padding-top: 40px
 }
 .App {

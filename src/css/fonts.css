@@ -17,8 +17,32 @@
   font-style:normal
 }
 @font-face{
-  font-family:'Adventure Hollow';
+  font-family:'Acmesai';
   src:url(../fonts/acme/acmesa.TTF);
+  font-weight:normal;
+  font-style:normal
+}
+@font-face{
+  font-family:'Outrun';
+  src:url(../fonts/outrun_future/Outrun future.otf);
+  font-weight:normal;
+  font-style:normal
+}
+@font-face{
+  font-family:'Outrun Bold';
+  src:url(../fonts/outrun_future/Outrun future Bold.otf);
+  font-weight:normal;
+  font-style:normal
+}
+@font-face{
+  font-family:'Outrun Bold Italic';
+  src:url(../fonts/outrun_future/Outrun future Bold Italic.otf);
+  font-weight:normal;
+  font-style:normal
+}
+@font-face{
+  font-family:'Finger';
+  src:url(../fonts/fingerprints/LeaveNoFingerprints.ttf);
   font-weight:normal;
   font-style:normal
 }

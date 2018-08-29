@@ -30,7 +30,7 @@ const Eye = styled.div`
     background-size: cover;
     background : ${BlackWidowEye}
 `
-export default class Error extends Component{
+export default class ErrorsC extends Component{
     state = {
         hasError : false,
     }
@@ -41,6 +41,7 @@ export default class Error extends Component{
         this.setState( ()=>({hasError : true })  )
     }
     render(){
+        ErrorsC.displayName = `Error(${this.props.children.displayName || this.props.children.type.name})`
         if(this.state.hasError){
             return(
                 <div>

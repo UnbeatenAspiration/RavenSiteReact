@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
-import '../css/ComicsList.css'
-import Key from '../apikey'
+import '../../css/ComicsList.css'
+import '../../css/utils/Loading.css'
+import Key from '../../apikey'
 import Comics from './Comics'
 export default class ComicsList extends Component{
     constructor(props) {

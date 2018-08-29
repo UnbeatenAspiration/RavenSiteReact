@@ -1,9 +1,9 @@
 import React,{PureComponent} from 'react'
-// import { get } from 'lodash'
-import Key from '../apikey.jsx'
+import { chunk } from 'lodash'
+import Key from '../../apikey.jsx'
 import Hero from './Hero'
-import Errors from './utils/ErrorCatching'
-
+import Errors from '../utils/ErrorCatching'
+import {HeroRow} from '../stylus/Comics'
 export default class Characters extends PureComponent{
     state = {
       error: null,
@@ -69,20 +69,27 @@ export default class Characters extends PureComponent{
                 )
             }
             else{
+                const rowOfHeroes = chunk(this.state.items,4)
                 return (
-                    <div style={{'margin' : '0 auto'}}>
-                        {this.state.items.map( (character,index) =>{
-                            const {results} = character.data;
-                                return (
-                                  <Errors key={index}>
-                                      <Hero  results = {results}/>
-                                  </Errors>
-                                )
-                    })}
+                    <div>
+                        {rowOfHeroes.map( (group,index) =>{
+                            return (
+                                <HeroRow key={index}>
+                                    {group.map( (character,index) =>{
+                                        const {results} = character.data;
+                                            return (
+                                                  <Errors key={index}>
+                                                      <Hero  hero = {results[0]}/>
+                                                  </Errors>
+                                            )}
+                                        )}
+                                </HeroRow>
+                                )}
+                            )}
                     </div>
                 )
+            }
         }
-    }
     else
         return null
 }

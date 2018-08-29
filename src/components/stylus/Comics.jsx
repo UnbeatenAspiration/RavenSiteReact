@@ -14,11 +14,12 @@ export  const Description = styled.div`
   transition: 0.7s width;
     &>div{
         display ${state =>state.hovered ? 'block' : 'none' };
-        right -17px;
         padding-right 17px;
         position absolute;
         overflow-y : scroll;
+        right : -17px;
         left 20px;
+        height : 320px;
         top 20px;
     }
     & span{
@@ -26,16 +27,16 @@ export  const Description = styled.div`
       font-size 1.1em;
     }
 `
+export const HeroRow = styled.div`
+    display block;
+    text-align center;
+`
 export const CharacterDiv = styled.div`
   display: inline-block;
   vertical-align: top;
   margin-right: 6px;
   position: relative;
-  float : left;
-    &:nth-child(5n + 1){
-      clear: left;
-    }
-    z-index: ${state => state.hovered ? 18 : 0}
+  z-index: ${state => state.hovered ? 18 : 0}
 `
 export const CharacterImage = styled.div`
   height: 350px;
