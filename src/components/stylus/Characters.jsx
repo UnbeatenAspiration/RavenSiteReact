@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import Done from '../../images/done.svg'
+import BlackCogWheel from '../../images/black.svg'
 
 export const CharacterRow = styled.div`
     display block;
@@ -20,14 +22,56 @@ export const SettingsDiv = styled.div`
     background #eee;
     margin-bottom 20px;
     transition .9s height;
-    height ${props => props.open ? '300px' : '100px'};
+    height ${props => props.open ? '300px' : '70px'};
+    position relative;
 `
-export settingsInput = styled.input`
-    &:checked + label i{
-        width 30px;
-        height 30px;
-        display inline-block;
-        border-radius 50px;
-        border 1px solid #000;
+export const SettingsInput = styled.input`
+    display none;
+    & ~ label{
+        user-select none;
+        & + label{
+            margin-left 10px;
+        }
+        &>i{
+            width 32px;
+            height 32px;
+            display inline-block;
+            background url(${BlackCogWheel});
+        }
+    }
+    &:checked ~ label{
+        &>i{
+            background url(${Done});
+        }
+    }
+`
+export const Cross = styled.div`
+    position absolute;
+    right 10px;
+    top 30px;
+    width 30px;
+    height 30px;
+    &>div{
+        display block;
+        height 4px;
+        width 100%;
+        background #000;
+        border-radius 8px;
+        transition .9s all;
+        ${props => props.lines ? `
+            transform rotate(0deg);
+            &:last-child{
+                position relative;
+                top 7px;
+            }
+            ` :`
+            position absolute;
+            top 0;
+            &:first-child{
+                transform rotate(45deg);
+            }
+            &:last-child{
+                transform rotate(-45deg);
+            }`}
     }
 `

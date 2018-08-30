@@ -1,5 +1,5 @@
 import React,{PureComponent} from 'react'
-import {Description,CharacterDiv,CharacterImage,CharacterTitle} from '../stylus/Comics'
+import {Description,CharacterDiv,CharacterImage,CharacterTitle} from './stylus/Comics'
 
 export default class Hero extends PureComponent{
     state = {
@@ -15,7 +15,7 @@ export default class Hero extends PureComponent{
         return(
             <CharacterDiv key ={hero.id} {...this.state}>
                 <CharacterImage style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} onMouseLeave={()=>{this.setState({ hovered : false })}} onMouseOver={()=>{this.setState({ hovered : true })}}>
-                    <Description {...this.state}>
+                    <Description {...this.state}{...this.props}>
                         <div>
                               <div><span> Name : </span>{hero.name}</div>
                               {hero.description && <div><span>Description :</span> {hero.description}</div> }

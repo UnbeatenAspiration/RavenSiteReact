@@ -3,7 +3,7 @@ import Shield from '../../images/shield.jpg'
 
 export  const Description = styled.div`
   position  absolute;
-  right   ${state =>state.hovered ? '-320px' : '0px' };
+  ${props => props.leftDesc ? `left -320px;` : `right -320px;` }
   width ${state =>state.hovered ? '320px' : '0px' };
   height ${state =>state.hovered ? '350px' : '0px' };
   overflow hidden;

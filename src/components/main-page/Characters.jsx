@@ -1,7 +1,7 @@
 import React,{PureComponent} from 'react'
 import { chunk } from 'lodash'
 import Key from '../../apikey.jsx'
-import Hero from './Hero'
+import Hero from '../Hero'
 import Errors from '../utils/ErrorCatching'
 import {HeroRow} from '../stylus/Comics'
 export default class Characters extends PureComponent{

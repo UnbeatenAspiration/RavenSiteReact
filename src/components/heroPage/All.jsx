@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {Switch,Route} from 'react-router-dom'
 import {exceptQ} from '../../apikey'
-import Hero from '../main-page/Hero'
+import Hero from '../Hero'
 import Settings from './Settings'
 import {chunk} from 'lodash'
 import Errors from '../utils/ErrorCatching'
@@ -65,18 +65,29 @@ class AllCharacters extends Component {
             </div>
         )
         else{
-            const rowOfHeroes = chunk(this.state.characters,5)
+            let arr = []
+            if(this.state.withOutImages){
+                arr = this.state.characters.filter(item => item.thumbnail.path.split('/').slice(-1)[0] !== 'image_not_available')
+            }
+            else{
+                arr = this.state.characters
+            }
+            const rowOfHeroes = chunk(arr,5)
             return (
                 <div className="AllCharactersContainer">
                     <PageTitle > Marvel Heroes </PageTitle>
-                    <Settings change={this.openIt.bind(this)} change ={this.change.bind(this)} open={this.state.openSettings} click={this.openIt.bind(this)}/>
+                    <Settings
+                        change={this.change.bind(this)}
+                        open={this.state.openSettings}
+                        click={this.openIt.bind(this)}
+                        changed={this.state.withOutImages}/>
                     {rowOfHeroes.map( (arr,index) => {
                         return (
                             <CharacterRow key={index}>
-                                {arr.map( (character) =>{
+                                {arr.map( (character,key) =>{
                                     return(
                                         <Errors key={character.id}>
-                                            <Hero  hero = {character}/>
+                                            <Hero  hero = {character} leftDesc={key === 4}/>
                                         </Errors>
                                     )
                                 })}
@@ -87,12 +98,6 @@ class AllCharacters extends Component {
             )
         }
     }
-    change(){
-        this.setState( (prevState) =>  {withOutImages : !prevState.withOutImages} )
-    }
-    openIt(){
-        console.log('two')
-        this.setState({ openSettings : !this.state.openSettings })
-        this.setState( (prevState) =>  {openSettings : !prevState.openSettings} )
-    }
+    change = ()=> this.setState(prevState =>{return {withOutImages : !prevState.withOutImages} })
+    openIt = ()=> this.setState(prevState => {return {openSettings : !prevState.openSettings} })
 }
