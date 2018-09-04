@@ -34,7 +34,7 @@ export const HeroRow = styled.div`
 export const CharacterDiv = styled.div`
   display: inline-block;
   vertical-align: top;
-  margin-right: 6px;
+  margin-right:${props => props.styleMake? '15px' : '6px' }
   position: relative;
   z-index: ${state => state.hovered ? 18 : 0}
 `
@@ -42,7 +42,7 @@ export const CharacterImage = styled.div`
   height: 350px;
   background-size: cover;
   width: 150px;
-  transform: skewX(-2deg);
+  transform: skewX(${props => props.styleMake? '-5deg' : '-2deg' });
   transition: .9s all;
   z-index -1;
     &:hover{
@@ -56,5 +56,6 @@ export const CharacterTitle = styled.div`
   text-align: center;
   margin-left: -7px;
   transition: .9s all;
-  transform : ${state =>state.hovered ? 'translateX(100px)' : 'none' }
+  transform : ${state =>state.hovered ? 'translateX(100px)' : 'none' };
+  color : ${props => props.styleMake ? '#fff' : ''}
 `

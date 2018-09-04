@@ -6,7 +6,8 @@ import Settings from './Settings'
 import {chunk} from 'lodash'
 import Errors from '../utils/ErrorCatching'
 import '../../css/utils/Loading.css'
-import {CharacterRow,PageTitle} from '../stylus/Characters'
+import {CharacterRow} from '../stylus/Characters'
+import TitleImg from '../../images/H1.png'
 
 export default () => (
     <Switch>
@@ -75,7 +76,7 @@ class AllCharacters extends Component {
             const rowOfHeroes = chunk(arr,5)
             return (
                 <div className="AllCharactersContainer">
-                    <PageTitle > Marvel Heroes </PageTitle>
+                    <img src={TitleImg} alt="" style={{margin : '0 auto',display : 'block',paddingRight: '27px'}} />
                     <Settings
                         change={this.change.bind(this)}
                         open={this.state.openSettings}
@@ -87,7 +88,7 @@ class AllCharacters extends Component {
                                 {arr.map( (character,key) =>{
                                     return(
                                         <Errors key={character.id}>
-                                            <Hero  hero = {character} leftDesc={key === 4}/>
+                                            <Hero  hero = {character} leftDesc={key === 4} styleMake={true}/>
                                         </Errors>
                                     )
                                 })}

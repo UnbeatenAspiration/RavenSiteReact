@@ -5,14 +5,7 @@ import BlackCogWheel from '../../images/black.svg'
 export const CharacterRow = styled.div`
     display block;
     text-align center;
-`
-export const PageTitle = styled.h1`
-    display block;
-    text-align center;
-    font-size 200px;
-    color #50078f;
-    letter-spacing: 11px;
-    font-family Finger;
+    margin-bottom 10px;
 `
 export const SettingsDiv = styled.div`
     padding 20px 30px;

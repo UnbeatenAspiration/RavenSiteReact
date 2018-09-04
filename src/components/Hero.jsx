@@ -13,8 +13,8 @@ export default class Hero extends PureComponent{
         const {hero}  = this.props
         const image = `${hero.thumbnail.path}.${hero.thumbnail.extension}`
         return(
-            <CharacterDiv key ={hero.id} {...this.state}>
-                <CharacterImage style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} onMouseLeave={()=>{this.setState({ hovered : false })}} onMouseOver={()=>{this.setState({ hovered : true })}}>
+            <CharacterDiv key ={hero.id} {...this.state} {...this.props}>
+                <CharacterImage {...this.props} style={{'background' : `url(${image}) center no-repeat`,backgroundSize : 'cover'}} onMouseLeave={()=>{this.setState({ hovered : false })}} onMouseOver={()=>{this.setState({ hovered : true })}}>
                     <Description {...this.state}{...this.props}>
                         <div>
                               <div><span> Name : </span>{hero.name}</div>
@@ -25,7 +25,7 @@ export default class Hero extends PureComponent{
                         </div>
                     </Description>
                 </CharacterImage>
-                <CharacterTitle {...this.state}>{hero.name}</CharacterTitle>
+                <CharacterTitle {...this.state} {...this.props}>{hero.name}</CharacterTitle>
             </CharacterDiv>
         )
     }
