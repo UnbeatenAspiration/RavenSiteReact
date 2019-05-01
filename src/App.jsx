@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import AllHeroes from './components/heroPage/All'
-import ComicsList from './components/main-page/ComicsList';
+import MainPage from './components/MainPage'
 import { BrowserRouter,Route,Switch} from 'react-router-dom'
 import {CreateBrowserHistory as CBH} from 'history/createBrowserHistory'
 import './css/App.css';
 import './css/fonts.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/js/bootstrap.js'
-class App extends Component {
+
+class App extends PureComponent {
   render() {
     return (
         <div>
@@ -17,10 +17,10 @@ class App extends Component {
                 <Header />
             </div>
             <main>
-                <BrowserRouter history = {CBH}>
+                <BrowserRouter history={CBH}>
                     <Switch>
-                        <Route exact path="/" component={ComicsList} ></Route>
-                        <Route  path="/characters" component={AllHeroes} ></Route>
+                        <Route exact path="/" component={MainPage} ></Route>
+                        <Route  path="/characters" component={MainPage} ></Route>
                     </Switch>
                 </BrowserRouter>
             </main>
